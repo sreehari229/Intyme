@@ -1,0 +1,64 @@
+{% extends "profile/base_profile.html" %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li class="colorlib-active"><a href="/mark_attendance">Mark Attendance</a></li>
+<li><a href="/check_attendance">Check Attendance</a></li>
+<li><a href="/student_absence">Absence Details</a></li>
+<li><a href="/graphs_charts">Reports</a></li>
+<li><a href="/missed_form">Missed Class Form</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+
+<div class="row"></div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h1>Result</h1></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+        <div class="card text-center">
+            <div class="card-header">
+                Latitude : {{ loc[0] }}, Longitude : {{ loc[1] }}<br><center>Block 3</center>
+            </div>
+            <div class="card-body">
+                {% if True in result: %}
+                    {% if time_check(): %}
+                        {{ update_value_attendance_present(id) }}
+                        {{ attendance_sheet_update(id) }}
+                        <h5 class="card-title">Face Recognized</h5>
+                        <p class="card-text">Attendance Marked for {{ retrive_subject(id) }}</p>
+                        <a href="/user" class="btn btn-dark">Home</a>
+                    {% else %}
+                        <h5 class="card-title">Face Recognized</h5>
+                        <p class="card-text">Try Again in the first 10 mins of the class</p>
+                        <a href="/user" class="btn btn-dark">Home</a>
+                    {% endif %}
+                {% elif False in result: %}
+                <h5 class="card-title">Face Not Matched</h5>
+                <p class="card-text">Face does not match the profile picture. Try a different picture</p>
+                <a href="/mark_attendance" class="btn btn-dark">Try another picture</a>
+                {% else: %}
+                <h5 class="card-title">Face Covered</h5>
+                <p class="card-text">Face Covered. Try a picture without covering your face.</p>
+                <a href="/mark_attendance" class="btn btn-dark">Take another picture</a>
+                {% endif %}
+            </div>
+            <div class="card-footer text-muted">
+                {{ time }}
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+
+{% endblock main_section %}

@@ -1,0 +1,98 @@
+{% extends "profile/base_profile.html" %}
+
+<!------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/teacher_check_attendance">Dashboard</a></li>
+<li class="colorlib-active"><a href="/send_mails">Send Emails</a></li>
+<li><a href="/teacher_absence">Absence Details</a></li>
+<li><a href="/add_student">Add Student</a></li>
+<li><a href="/teacher_attendance_claim">Attendance Claim</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+
+{% block alerts %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Result</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock alerts %}
+
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+        <div class="comment-form-wrap pt-5">
+            <div class="row">
+                <div class="col">
+                    <h3 class="mb-5">Emails and Notifications</h3>
+                </div>
+                <div class="col">
+                    <img src="{{ url_for('static',filename='back.gif') }}" alt="" width="250" height="100">
+                </div>
+            </div>
+            <form action="/send_mails" method="post" class="p-3 p-md-5 bg-light">
+                <div class="row">
+                    <div class="col">
+                        <textarea name="msg" id="" placeholder="Type your message here..." cols="80"
+                                  rows="15"></textarea>
+                    </div>
+                </div>
+
+                <h2>6 BCA A</h2>
+                {% for student in data %}
+                {% if student[3] == '6 BCA A' %}
+                <table class="table table-hover table-borderless table-light">
+                    <tbody>
+                    <tr>
+                        <td style="width:3%"><input type="checkbox" name="students" value="{{ student[2] }}"></td>
+                        <td style="width:15%">{{ student[0] }}</td>
+                        <td style="width:37%;padding-left: 5px">{{ student[1] }}</td>
+                        <td style="width:45%" align="right">{{ student[2] }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                {% endif %}
+                {% endfor %}
+
+                <h2>6 BCA B</h2>
+                {% for student in data %}
+                {% if student[3] == '6 BCA B' %}
+                <table class="table table-hover table-borderless table-light">
+                    <tbody>
+                    <tr>
+                        <td style="width:3%"><input type="checkbox" name="students" value="{{ student[2] }}"></td>
+                        <td style="width:15%">{{ student[0] }}</td>
+                        <td style="width:37%;padding-left: 5px">{{ student[1] }}</td>
+                        <td style="width:45%" align="right">{{ student[2] }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                {% endif %}
+                {% endfor %}
+
+
+                <div class="form-group">
+                    <br>
+                    <center><input type="submit" name="submit" value="Submit" class="btn py-3 px-4 btn-primary">
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+{% endblock main_section %}

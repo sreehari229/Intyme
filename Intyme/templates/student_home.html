@@ -1,0 +1,91 @@
+{% extends "profile/base_profile.html" %}
+
+<!------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li class="colorlib-active"><a href="/user">Home</a></li>
+<li><a href="/mark_attendance">Mark Attendance</a></li>
+<li><a href="/check_attendance">Check Attendance</a></li>
+<li><a href="/student_absence">Absence Details</a></li>
+<li><a href="/graphs_charts">Reports</a></li>
+<li><a href="/missed_form">Missed Class Form</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+
+{% block main_section %}
+<div class="row"><br></div>
+<div style="box-shadow: 0 35px 150px 0 rgba(0, 0, 0, 0.3);max-width: 600px;margin: auto;">
+    <div class="hero-wrap hero-wrap-2 js-fullheight"
+         data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="js-fullheight d-flex justify-content-center align-items-center">
+            <div class="col-md-8 text text-center">
+                <div class="img mb-4"
+                     style="background-image:url({{ url_for('static',filename='profile/images/person.jpg') }})"></div>
+                <div class="desc">
+
+                    <h4 class="mb-4">Name : {{ p_data['username'] }}</h4>
+                    <hr>
+                    <h5>DOB : {{ p_data['dob'] }}</h5>
+                    <h5>Class : {{ p_data['class'] }}</h5>
+                    <h5>Course : {{ p_data['course'] }}</h5>
+                    <h5>Mobile : {{ p_data['mobile'] }}</h5>
+                    <h5>Email : {{ p_data['email'] }}</h5>
+                    <h5>Address : {{ p_data['address'] }}</h5>
+                    <hr>
+
+                    <ul class="ftco-social mt-3">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animatex"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="row"><br></div>
+
+{% endblock main_section %}
+
+
+<table class="table table-borderless">
+    <tbody>
+    <tr>
+
+        <td scope="row"><h5>Name</h5></td>
+        <td>{{ p_data['username'] }}</td>
+
+    </tr>
+    <tr>
+        <th scope="row"><h5>DOB</h5></th>
+        <td>{{ p_data['dob'] }}</td>
+    </tr>
+    <tr>
+        <th scope="row"><h5>Class</h5></th>
+        <td>{{ p_data['class'] }}</td>
+    </tr>
+    <tr>
+        <th scope="row"><h5>Course</h5></th>
+        <td>{{ p_data['course'] }}</td>
+    </tr>
+    <tr>
+        <th scope="row"><h5>Mobile</h5></th>
+        <td>{{ p_data['mobile'] }}</td>
+    </tr>
+    <tr>
+        <th scope="row"><h5>Email</h5></th>
+        <td>{{ p_data['email'] }}</td>
+    </tr>
+    <tr>
+        <th scope="row"><h5>Address</h5></th>
+        <td>{{ p_data['address'] }}</td>
+    </tr>
+    </tbody>
+</table>
+
+

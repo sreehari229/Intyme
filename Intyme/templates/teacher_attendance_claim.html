@@ -1,0 +1,78 @@
+{% extends "profile/base_profile.html" %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/teacher_check_attendance">Dashboard</a></li>
+<li><a href="/send_mails">Send Emails</a></li>
+<li><a href="/teacher_absence">Absence Details</a></li>
+<li><a href="/add_student">Add Student</a></li>
+<li class="colorlib-active"><a href="/teacher_attendance_claim">Attendance Claim</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+
+{% block alerts %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Result</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock alerts %}
+
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-11"><h2>Attendance Approval</h2></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-11">
+        <table class="table table-secondary table-hover" style="color: black">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">From Date</th>
+                <th scope="col">To Date</th>
+                <th scope="col">Type</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Document</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for det in data %}
+            <form action="/medical_approval" method="post">
+            <tr>
+                <td style="width: 5%">{{ det[0] }}</td>
+                <td style="width: 13%">{{ det[1] }}</td>
+                <td style="width: 13%">{{ det[2] }}</td>
+                <td style="width: 10%">{{ det[3] }}</td>
+                <td style="width: 40%">{{ det[4] }}</td>
+                <td style="width: 10%"><a href="/document/{{ det[5] }}">Document</a> </td>
+                <input name="id" value="{{ det[0] }}" style="display: none">
+                <input name="type" value="{{ det[3] }}" style="display: none">
+                <input name="reason" value="{{ det[4] }}" style="display: none">
+                <td style="width: 9%"><button value="submit" type="submit" name="submit" class="btn-success">Approve</button></td>
+            </tr>
+            </form>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col"></div>
+</div>
+
+{% endblock main_section %}

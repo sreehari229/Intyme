@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Intyme</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/jquery.fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/fonts/flaticon/font/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home/css/style.css') }}">
+    
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="site-wrap"  id="home-section">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+   
+   
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-md-3 col-xl-4  d-block">
+            <h1 class="mb-0 site-logo"><a href="/" class="text-black h2 mb-0"><span class="text-primary">Intyme</span></a></h1>
+          </div>
+
+          <div class="col-12 col-md-9 col-xl-8 main-menu">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block ml-0 pl-0">
+                <li><a href="#home-section" class="nav-link">Home</a></li>
+                <li><a href="#features-section" class="nav-link">Features</a></li>
+                <li class="has-children">
+                  <a href="#about-section" class="nav-link">About Us</a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="#about-section" target="_blank" class="nav-link"><span class="text-primary">About Us</span></a></li>
+                    <li><a href="#our-team-section" class="nav-link">Made By</a></li>
+
+                  </ul>
+                </li>
+                <li><a href="login">Login</a></li>
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="col-6 col-md-9 d-inline-block d-lg-none ml-md-0" ><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+      </div>
+      
+    </header>
+    
+
+    <div class="site-blocks-cover" style="overflow: hidden;">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          <div class="col-md-12" style="position: relative;" data-aos="fade-up" data-aos-delay="200">
+            
+            <img src="{{ url_for('static',filename='home/images/undraw_investing_7u74.svg') }}" alt="Image" class="img-fluid img-absolute">
+
+            <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-lg-6 mr-auto">
+                <h1>Face Recognition Attendance System</h1>
+                <p class="mb-5">Intyme is an automated face recognition attendance system which uses geolocation and marks the attendance of recognized faces</p>
+                <div>
+                  <a href="/login" class="btn btn-primary mr-2 mb-2">Get Started</a>
+                </div>
+              </div>
+              
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>  
+
+
+    <div class="site-section" id="features-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center text-center"  data-aos="fade-up">
+          <div class="col-7 text-center  mb-5">
+            <h2 class="section-title">Intyme Features</h2>
+            <p class="lead">To overcome the problems in the existing attendance system we have developed a biometric based attendance system over simple attendance system.</p>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-autorenew"></span></span>
+              </div>
+              <div>
+                <h3>Face Recognition</h3>
+                <p>Technology capable of identifying or verifying a person from a digital image or a video frame from a video source.</p>
+                <p><a href="/login">Learn More</a></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-store_mall_directory"></span></span>
+              </div>
+              <div>
+                <h3>Geo Location</h3>
+                <p>Identification or estimation of the real-world geographic location of an object or a person.</p>
+                <p><a href="/login">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up"  data-aos-delay="200">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-shopping_basket"></span></span>
+              </div>
+              <div>
+                <h3>Time Based Attendance</h3>
+                <p>Monitor students based on the time they mark their attendance and the absenteeism.</p>
+                <p><a href="/login">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-settings_backup_restore"></span></span>
+              </div>
+              <div>
+                <h3>Notifications</h3>
+                <p>Automatic emails are sent to the students who are absent.</p>
+                <p><a href="/login">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-sentiment_satisfied"></span></span>
+              </div>
+              <div>
+                <h3>Reports, Graphs, Charts</h3>
+                <p>A detailed view of the attendance is provided for students and teachers.</p>
+                <p><a href="/login">Learn More</a></p>
+              </div>
+            </div>
+
+
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-power"></span></span>
+              </div>
+              <div>
+                <h3>Easy and Automated</h3>
+                <p>A fully automated system with an easy to use interface.</p>
+                <p><a href="/login">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+
+    <div class="site-section bg-light" id="about-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">About Us</h2>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="{{ url_for('static',filename='home/images/undraw_bookmarks_r6up.svg') }}" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-lg-5 ml-auto pl-lg-5">
+            <h2 class="text-black mb-4 h3 font-weight-bold">Future Enhancements</h2>
+            <p class="mb-4">Automated Attendance System can be implemented in larger areas like in a seminar hall where it helps in sensing the presence of many people. Sometimes the poor lighting condition of the classroom may affect image quality which indirectly degrades system performance, this can be overcome in the latter stage by improving the quality of the video or by using some algorithms.
+</p>
+
+            <p><a href="#" class="btn btn-primary">Learn More</a></p>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <div class="site-section" id="our-team-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center text-center"  data-aos="fade-up">
+          <div class="col-7 text-center  mb-5">
+            <h2 class="section-title">Made By</h2>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="person">
+              <div class="bio-img">
+                <figure>
+                  <img src="{{ url_for('static',filename='home/images/pic2.gif') }}" alt="Image" class="img-fluid">
+                </figure>
+                <div class="social">
+                  <a href="#"><span class="icon-facebook"></span></a>
+                  <a href="#"><span class="icon-twitter"></span></a>
+                  <a href="#"><span class="icon-instagram"></span></a>
+                </div>
+              </div>
+              <h2 class="text-black h1">Sreehari S</h2>
+              <span class="sub-title d-block mb-3">1741155</span>
+              <p>6 BCA B</p>
+              <p>Christ (Deemed to be University)</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="site-section bg-image2 overlay" id="contact-section" style="background-image: url('images/hero_1.jpg');">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3 text-white">Contact Us</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-7 mb-5">
+
+            
+
+            <form action="/" class="p-5 bg-white" method="post">
+              
+              <h2 class="h4 text-black mb-5">Contact Form</h2> 
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" id="fname" name="fname" class="form-control rounded-0">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" id="lname" name="lname" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" id="email" name="email" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Subject</label> 
+                  <input type="subject" id="subject" name="subject" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Message</label> 
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0" placeholder="Leave your message here..."></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" name="submit" class="btn btn-primary mr-2 mb-2">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+        
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="footer py-5 text-center">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12">
+            <p class="mb-0">
+              <a href="https://www.instagram.com/sreehari229/" class="p-3"><span class="icon-instagram"></span></a>
+              <a href="www.linkedin.com/in/sreehari229" class="p-3"><span class="icon-linkedin"></span></a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="mb-0">
+            Intyme | An attendance app made by Sreehari S (1741155)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .site-wrap -->
+
+  <script src="{{ url_for('static',filename='home/js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/jquery-ui.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/jquery.countdown.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/aos.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/jquery.fancybox.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/jquery.sticky.js') }}"></script>
+  <script src="{{ url_for('static',filename='home/js/main.js') }}"></script>
+  
+  </body>
+</html>

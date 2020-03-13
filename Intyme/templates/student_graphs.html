@@ -1,0 +1,220 @@
+{% extends "profile/base_profile.html" %}
+
+<!-------------------------------------------------Head-------------------------------------------------------->
+
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+{% endblock head %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/mark_attendance">Mark Attendance</a></li>
+<li><a href="/check_attendance">Check Attendance</a></li>
+<li><a href="/student_absence">Absence Details</a></li>
+<li class="colorlib-active"><a href="/graphs_charts">Reports</a></li>
+<li><a href="/missed_form">Missed Class Form</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+        <canvas id="barGraph" width="400" height="400"></canvas>
+    </div>
+    <div class="col-5">
+        <canvas id="lineChart" width="400" height="400"></canvas>
+    </div>
+    <div class="col"></div>
+</div>
+<hr>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+        <canvas id="doughnutChart" width="400" height="400"></canvas>
+    </div>
+    <div class="col-5">
+        <canvas id="pieChart" width="400" height="400"></canvas>
+    </div>
+    <div class="col"></div>
+</div>
+<hr>
+
+
+<!-----Scripts------>
+<script>
+var linectx = document.getElementById('lineChart');
+var barctx = document.getElementById('barGraph');
+var piectx = document.getElementById('pieChart');
+var doughctx = document.getElementById('doughnutChart');
+var linedata = {
+    labels: {{ subject|safe }},
+    datasets: [
+    {
+        label: "Conducted",
+        data:  {{ conducted|safe }},
+        backgroundColor: "blue",
+        borderColor: "lightblue",
+        fill: false,
+        lineTension: 0,
+        pointRadius: 7
+    },
+        {
+        label: "Present",
+        data: {{ present|safe }},
+        backgroundColor: "green",
+        borderColor: "lightgreen",
+        fill: false,
+        lineTension: 0,
+        pointRadius: 7
+        }
+    ]
+};
+var bardata = {
+    labels: {{ subject|safe }},
+    datasets: [
+    {
+        label: "Conducted",
+        data: {{ conducted|safe }},
+        backgroundColor: "lightblue",
+        borderColor: "blue",
+        borderWidth: 1
+    },
+        {
+        label: "Present",
+        data: {{ present|safe }},
+        backgroundColor: "lightgreen",
+        borderColor: "darkgreen",
+        borderWidth: 1
+        }
+    ]
+};
+var piedata = {
+    labels: {{ subject|safe }},
+    datasets: [
+    {
+        label: "Present",
+        data: {{ present|safe }},
+        backgroundColor: {{ colours|safe }},
+        borderColor: {{ colours|safe }},
+        borderWidth: [ 1,1,1 ]
+    }
+    ]
+};
+var doughdata = {
+    labels: {{ subject|safe }},
+    datasets: [
+    {
+        label: "Present",
+        data: {{ present|safe }},
+        backgroundColor: {{ colours|safe }},
+        borderColor: {{ colours|safe }},
+        borderWidth: [ 1,1,1 ]
+    }
+    ]
+};
+
+var myChart = new Chart(linectx, {
+    type: 'line',
+    data: linedata,
+    options: {
+        title: {
+            display: true,
+            position: "top",
+            text: "Line Graph",
+            fontSize: 25,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "top"
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min:0
+                }
+            }]
+        }
+    }
+});
+var barmyChart = new Chart(barctx, {
+    type: 'bar',
+    data: bardata,
+    options: {
+        title: {
+            display: true,
+            position: "top",
+            text: "Bar Graph",
+            fontSize: 25,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "top"
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min:0
+                }
+            }]
+        }
+    }
+});
+var piemyChart = new Chart(piectx, {
+    type: 'pie',
+    data: piedata,
+    options: {
+        title: {
+            display: true,
+            position: "top",
+            text: "Pie Chart",
+            fontSize: 25,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "top"
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min:0
+                }
+            }]
+        }
+    }
+});
+var doughmyChart = new Chart(doughctx, {
+    type: 'doughnut',
+    data: doughdata,
+    options: {
+        title: {
+            display: true,
+            position: "top",
+            text: "Doughnut Chart",
+            fontSize: 25,
+            fontColor: "#111"
+        },
+        legend: {
+            display: true,
+            position: "top"
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min:0
+                }
+            }]
+        }
+    }
+});
+
+</script>
+
+{% endblock main_section %}
+

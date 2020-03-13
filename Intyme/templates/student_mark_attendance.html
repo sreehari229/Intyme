@@ -1,0 +1,117 @@
+{% extends "profile/base_profile.html" %}
+
+{% block head %}
+<style>
+    #my_camera {
+        width: 640px;
+        height: 480px;
+    }
+</style>
+{% endblock head %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li class="colorlib-active"><a href="/mark_attendance">Mark Attendance</a></li>
+<li><a href="/check_attendance">Check Attendance</a></li>
+<li><a href="/student_absence">Absence Details</a></li>
+<li><a href="/graphs_charts">Reports</a></li>
+<li><a href="/missed_form">Missed Class Form</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6"><h1>Mark Attendance</h1></div>
+    <div class="col"></div>
+</div>
+
+<div class="row"></div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-7">
+        <div class="col mb-4">
+            <div class="card h-100"  style="box-shadow: 0 35px 150px 0 rgba(0, 0, 0, 0.3)">
+                <div>
+                    <center>
+                        <div id="my_camera"></div>
+                    </center>
+                    <script type="text/javascript" src="{{ url_for('static',filename='webcam.min.js') }}"></script>
+                    <!-- Configure a few settings and attach camera -->
+                    <script language="JavaScript">
+                        Webcam.set({
+                            width: 610,
+                            height: 480,
+                            image_format: 'jpeg',
+                            jpeg_quality: 90
+                        });
+                        Webcam.attach('#my_camera');
+                    </script>
+                </div>
+                <center>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ id }}</h5>
+                        <p class="card-text">{{ dt }}</p>
+                        <p class="card-text">{{ loc }}</p>
+                        <a href="/mark_attendance" class="btn btn-danger">Take Another Picture</a>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                            Mark Attendance
+                        </button>
+                    </div>
+
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="row">
+        <img src="{{ url_for('static',filename='profile/images/test_image.jpg') }}"
+                         class="card-img-top"
+                         alt="Test Image">
+
+        </div>
+        <div class="row">
+            <img src="{{ url_for('static',filename='profile/images/person.jpg') }}"
+                         class="card-img-top"
+                         alt="Test Image">
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Intyme </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ url_for('static',filename='profile/images/test_image.jpg') }}"
+                             class="card-img-top"
+                             alt="Test Image">
+                    </div>
+                </div>
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="/report" class="btn btn-success">Confirm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main_section %}

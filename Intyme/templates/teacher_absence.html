@@ -1,0 +1,97 @@
+{% extends "profile/base_profile.html" %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/teacher_check_attendance">Dashboard</a></li>
+<li><a href="/send_mails">Send Emails</a></li>
+<li class="colorlib-active"><a href="/teacher_absence">Absence Details</a></li>
+<li><a href="/add_student">Add Student</a></li>
+<li><a href="/teacher_attendance_claim">Attendance Claim</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h1>Absence Details</h1></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h3>6 BCA A</h3></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Student ID</th>
+                <th scope="col">Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in a_section %}
+            <tr>
+                {% for det in student %}
+                <td>{{ det }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h3>6 BCA B</h3></div>
+    <div class="col"></div>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Student ID</th>
+                <th scope="col">Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in b_section %}
+            <tr>
+                {% for det in student %}
+                <td>{{ det }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col"></div>
+</div>
+
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+        <img src="{{ url_for('static',filename='back.gif') }}" alt="">
+    </div>
+    <div class="col"></div>
+</div>
+
+
+{% endblock main_section %}

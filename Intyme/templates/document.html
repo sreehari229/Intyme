@@ -1,0 +1,25 @@
+{% extends "profile/base_profile.html" %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/teacher_check_attendance">Dashboard</a></li>
+<li><a href="/send_mails">Send Emails</a></li>
+<li><a href="#">Absence Details</a></li>
+<li><a href="/add_student">Add Student</a></li>
+<li class="colorlib-active"><a href="/teacher_attendance_claim">Attendance Claim</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+{% block main_section %}
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-11">
+        <img src="/static/uploads/{{ name }}">
+    </div>
+    <div class="col"></div>
+</div>
+
+{% endblock main_section %}

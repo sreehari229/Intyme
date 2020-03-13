@@ -1,0 +1,93 @@
+{% extends "profile/base_profile.html" %}
+
+<!------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/mark_attendance">Mark Attendance</a></li>
+<li><a href="/check_attendance">Check Attendance</a></li>
+<li><a href="/student_absence">Absence Details</a></li>
+<li><a href="/graphs_charts">Reports</a></li>
+<li class="colorlib-active"><a href="/missed_form">Missed Class Form</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+
+{% block alerts %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+    <strong>Result</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock alerts %}
+
+
+
+
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+        <div class="comment-form-wrap pt-5">
+            <h3 class="mb-5">Missed Class Form</h3>
+            <form action="/missed_form" class="p-3 p-md-5 bg-light" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col"><h5>Subject</h5></div>
+                    <div class="col">
+                        <select name="subject">
+                            <option value="daa">Design Analysis and Algorithms</option>
+                            <option value="adbms">Advanced Database Management System</option>
+                            <option value="major project">Major Project</option>
+                            <option value="french">French</option>
+                            <option value="german">German</option>
+                            <option value="cloud computing">Cloud Computing</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col"><h5>From Date</h5></div>
+                    <div class="col"><input type="date" name="from"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>To date</h5></div>
+                    <div class="col"><input type="date" name="to"></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col"><input type="radio" name="r_type" value="medical">Medical</div>
+                    <div class="col"><input type="radio" name="r_type" value="cocurricular">Co-Curricular</div>
+                    <div class="col"><input type="radio" name="r_type" value="extra">Extra-Curricular</div>
+                    <div class="col-1"></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col"><h5>Reason</h5></div>
+                    <div class="col"><textarea name="reason" cols="80" rows="6"></textarea></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col"><h5>Documents</h5></div>
+                    <div class="col"><input type="file" name="docsf" id="docsf"></div>
+                </div>
+                <hr>
+                <div class="form-group"><br>
+                    <center><input type="submit" name="submit" value="Submit" class="btn py-3 px-4 btn-primary"></center>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+{% endblock main_section %}

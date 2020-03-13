@@ -1,0 +1,58 @@
+{% extends "profile/base_profile.html" %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/mark_attendance">Mark Attendance</a></li>
+<li><a href="/check_attendance">Check Attendance</a></li>
+<li class="colorlib-active"><a href="/student_absence">Absence Details</a></li>
+<li><a href="/graphs_charts">Reports</a></li>
+<li><a href="/missed_form">Missed Class Form</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h1>Absence Details</h1></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in data %}
+            <tr>
+                {% for det in student %}
+                <td>{{ det }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+        <img src="{{ url_for('static',filename='back.gif') }}" alt="">
+    </div>
+    <div class="col"></div>
+</div>
+
+
+{% endblock main_section %}

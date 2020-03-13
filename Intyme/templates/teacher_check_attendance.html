@@ -1,0 +1,100 @@
+{% extends "profile/base_profile.html" %}
+
+<!-------------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li class="colorlib-active"><a href="/teacher_check_attendance">Dashboard</a></li>
+<li><a href="/send_mails">Send Emails</a></li>
+<li><a href="/teacher_absence">Absence Details</a></li>
+<li><a href="/add_student">Add Student</a></li>
+<li><a href="/teacher_attendance_claim">Attendance Claim</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+{% block main_section %}
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h1>Attendance Details</h1></div>
+    <div class="col"></div>
+</div>
+<hr>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h3>6 BCA A</h3></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+        <table class="table table-hover table-bordered table-secondary" style="color: black">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Conducted</th>
+                <th scope="col">Present</th>
+                <th scope="col">Absent</th>
+                <th scope="col">Co curricular</th>
+                <th scope="col">Extra Curricular</th>
+                <th scope="col">Medical</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for student in BCA6_A %}
+                <tr>
+                    {% for stat in student %}
+                        <td>{{ stat }}</td>
+                    {% endfor %}
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col"></div>
+</div>
+<hr>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10"><h3>6 BCA B</h3></div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-10">
+        <table class="table table-hover table-bordered table-secondary" style="color: black">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Conducted</th>
+                <th scope="col">Present</th>
+                <th scope="col">Absent</th>
+                <th scope="col">Co curricular</th>
+                <th scope="col">Extra Curricular</th>
+                <th scope="col">Medical</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for student in BCA6_B %}
+                <tr>
+                    {% for stat in student %}
+                        <td>{{ stat }}</td>
+                    {% endfor %}
+                </tr>
+
+               {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col"></div>
+</div>
+
+
+
+
+{% endblock main_section %}

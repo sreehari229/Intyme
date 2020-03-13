@@ -1,0 +1,41 @@
+{% extends "profile/base_profile.html" %}
+
+<!------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li class="colorlib-active"><a href="/user">Home</a></li>
+<li><a href="/teacher_check_attendance">Dashboard</a></li>
+<li><a href="/send_mails">Send Emails</a></li>
+<li><a href="/teacher_absence">Absence Details</a></li>
+<li><a href="/add_student">Add Student</a></li>
+<li><a href="/teacher_attendance_claim">Attendance Claim</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+
+{% block main_section %}
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+        <div class="comment-form-wrap pt-5">
+            <h3 class="mb-5">Account Details</h3>
+            <div class="p-3 p-md-5 bg-light" style="box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.2)">
+                <center>
+                <h4 class="mb-4">{{ t_data['username'] }}</h4>
+                <hr>
+                <h5>Qualification : {{ t_data['qualification'] }}</h5>
+                <h5>Classes : {{ t_data['classes_taken'] }}</h5>
+                <h5>Subject : {{ t_data['subject'] }}</h5>
+                <h5>Designation : {{ t_data['designation'] }}</h5>
+                <h5>Faculty Location : {{ t_data['location'] }}</h5>
+                <h5>Email : {{ t_data['email'] }}</h5>
+                <h5>Phone Number : {{ t_data['phone_number'] }}</h5>
+                    </center>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock main_section %}

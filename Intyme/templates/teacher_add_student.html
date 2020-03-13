@@ -1,0 +1,114 @@
+{% extends "profile/base_profile.html" %}
+
+<!------------------------------------------Navbar------------------------------------------------------>
+
+{% block navbar %}
+<li><a href="/user">Home</a></li>
+<li><a href="/teacher_check_attendance">Dashboard</a></li>
+<li><a href="/send_mails">Send Emails</a></li>
+<li><a href="/teacher_absence">Absence Details</a></li>
+<li class="colorlib-active"><a href="/add_student">Add Student</a></li>
+<li><a href="/teacher_attendance_claim">Attendance Claim</a></li>
+{% endblock navbar %}
+
+<!------------------------------------------Main Section------------------------------------------------------>
+
+
+{% block main_section %}
+
+{% block alerts %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+    <strong>Result</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock alerts %}
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+        <div class="comment-form-wrap pt-5">
+            <h3 class="mb-5">Register Student</h3>
+            <form action="/add_student" method="post" class="p-3 p-md-5 bg-light" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col"><h5>Name</h5></div>
+                    <div class="col"><input type="text" name="name"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>Register Number</h5></div>
+                    <div class="col"><input type="text" name="regno"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>Gender</h5></div>
+                    <div class="col">
+                        <div class="col"><input type="radio" name="gender" value="male">Male</div>
+                        <div class="col"><input type="radio" name="gender" value="female">Female</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col"><h5>Class</h5></div>
+                    <div class="col">
+                        <div class="col"><input type="radio" name="class" value="6 BCA A">6 BCA A</div>
+                        <div class="col"><input type="radio" name="class" value="6 BCA B">6 BCA B</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col"><h5>Section</h5></div>
+                    <div class="col">
+                        <div class="col"><input type="radio" name="section" value="A">A</div>
+                        <div class="col"><input type="radio" name="section" value="B">B</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col"><h5>Year</h5></div>
+                    <div class="col"><input type="number" name="year" min="1" max="5"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>Course</h5></div>
+                    <div class="col"><input type="text" name="course" placeholder="BCA"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>Email</h5></div>
+                    <div class="col"><input type="email" name="email"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>Mobile</h5></div>
+                    <div class="col"><input type="text" name="mobile"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>Date of birth</h5></div>
+                    <div class="col"><input type="date" name="dob"></div>
+                </div>
+                <div class="row">
+                    <div class="col"><h5>Address</h5></div>
+                    <div class="col"><textarea name="address" cols="50" rows="6"></textarea></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col"><h5>Photo</h5></div>
+                    <div class="col"><input type="file" name="photo" id="photo"></div>
+                </div>
+                <hr>
+
+                <div class="form-group"><br>
+                    <center>
+                        <button class="btn py-3 px-4 btn-primary" type="submit" name="submit"> Submit</button>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+{% endblock main_section %}
